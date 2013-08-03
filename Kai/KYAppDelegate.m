@@ -113,9 +113,12 @@
     }
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Kai.sqlite"];
+    BOOL firstRun = ![[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]];
+
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
         /*
          Replace this implementation with code to handle the error appropriately.
@@ -144,7 +147,8 @@
         abort();
     }
     
-
+if(firstRun)
+{
     Users *userName = [NSEntityDescription insertNewObjectForEntityForName:@"Users" inManagedObjectContext:_managedObjectContext];
     [userName setName:@"Shola"];
     [userName setPhoneNumber:@"555-555-1234"];
@@ -171,15 +175,9 @@
     [userName setReminder:180];
     [userName setPhoto:@"janeth.jpg"];
     
-    error = nil;
-    [self.managedObjectContext save:&error];
-    if (error)
-    {
-        // error handling
-        NSLog(@"ERROR at entering in core data");
-    }
+    [self saveContext];
     
-    
+}
     
     //[self saveContext];
     
