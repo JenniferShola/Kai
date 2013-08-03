@@ -152,6 +152,24 @@
     
     //[userName.interactions methodName] countObjects, For-Loop/Iterate, Sort into Array
     
+    NSFetchRequest * request = [[NSFetchRequest alloc] initWithEntityName:@"Users"];
+    NSError *e = nil;
+    NSArray * users = [_managedObjectContext executeFetchRequest:request  error:&e];
+    if (error)
+    {
+        //do something here
+    }
+    
+    for (Users* key in users) {
+        Interactions *i = [[Interactions alloc] init];
+        i.timestamp += [[NSDate date] timeIntervalSince1970];
+        i.notes = @"It's so cool interacting with you and talking about programming";
+        i.type = 2;
+        i.user = key;
+        [key addInteractionsObject:i];
+    }
+    
+    
     return _persistentStoreCoordinator;
 }
 
