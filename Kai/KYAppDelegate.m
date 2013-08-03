@@ -7,7 +7,8 @@
 //
 
 #import "KYAppDelegate.h"
-
+#import "Users.h"
+#import "Interactions.h"
 #import "KYMasterViewController.h"
 
 @implementation KYAppDelegate
@@ -82,6 +83,12 @@
         _managedObjectContext = [[NSManagedObjectContext alloc] init];
         [_managedObjectContext setPersistentStoreCoordinator:coordinator];
     }
+    
+    Users *userName = [[Users alloc] init];
+    [_managedObjectContext insertObject: userName];
+    
+    [self saveContext];
+    
     return _managedObjectContext;
 }
 
@@ -135,7 +142,15 @@
          */
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
-    }    
+    }
+    
+    
+    //Users *userName = [[Users alloc] init];
+    //[_managedObjectContext insertObject: userName];
+    
+    //[self saveContext];
+    
+    //[userName.interactions methodName] countObjects, For-Loop/Iterate, Sort into Array
     
     return _persistentStoreCoordinator;
 }

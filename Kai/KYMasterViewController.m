@@ -19,6 +19,12 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+    //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    //[defaults setObject:@"Hello" forKey:@"poop"];
+    //[defaults setObject:]
+    
+    //[defaults synchronize];
 }
 
 - (void)viewDidLoad
