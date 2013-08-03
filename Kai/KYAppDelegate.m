@@ -84,10 +84,9 @@
         [_managedObjectContext setPersistentStoreCoordinator:coordinator];
     }
     
-    /*
     Users *userName = [[Users alloc] init];
     [_managedObjectContext insertObject: userName];
-    */
+    
     [self saveContext];
     
     return _managedObjectContext;

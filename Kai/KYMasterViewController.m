@@ -151,7 +151,7 @@
     NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
-    /*
+    
 	NSError *error = nil;
 	if (![self.fetchedResultsController performFetch:&error]) {
 	     // Replace this implementation with code to handle the error appropriately.
@@ -159,7 +159,7 @@
 	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 	    abort();
 	}
-    */
+    
     return _fetchedResultsController;
 }    
 
