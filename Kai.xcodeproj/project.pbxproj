@@ -23,6 +23,7 @@
 		77F3090C17ACD3A500A81BEF /* KYDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F3090B17ACD3A500A81BEF /* KYDetailViewController.m */; };
 		77F3091417ACDC6C00A81BEF /* Interactions.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F3091317ACDC6C00A81BEF /* Interactions.m */; };
 		77F3091717ACDC7E00A81BEF /* Users.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F3091617ACDC7E00A81BEF /* Users.m */; };
+		77F3091A17AD0A6B00A81BEF /* KYUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F3091917AD0A6B00A81BEF /* KYUserTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,8 @@
 		77F3091317ACDC6C00A81BEF /* Interactions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Interactions.m; sourceTree = "<group>"; };
 		77F3091517ACDC7E00A81BEF /* Users.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Users.h; sourceTree = "<group>"; };
 		77F3091617ACDC7E00A81BEF /* Users.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Users.m; sourceTree = "<group>"; };
+		77F3091817AD0A6A00A81BEF /* KYUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYUserTableViewCell.h; sourceTree = "<group>"; };
+		77F3091917AD0A6B00A81BEF /* KYUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYUserTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,8 @@
 				77F308F817ACD3A500A81BEF /* KYAppDelegate.h */,
 				77F308F917ACD3A500A81BEF /* KYAppDelegate.m */,
 				77F3090117ACD3A500A81BEF /* MainStoryboard.storyboard */,
+				77F3091817AD0A6A00A81BEF /* KYUserTableViewCell.h */,
+				77F3091917AD0A6B00A81BEF /* KYUserTableViewCell.m */,
 				77F3090717ACD3A500A81BEF /* KYMasterViewController.h */,
 				77F3090817ACD3A500A81BEF /* KYMasterViewController.m */,
 				77F3090A17ACD3A500A81BEF /* KYDetailViewController.h */,
@@ -203,6 +208,7 @@
 				77F3090C17ACD3A500A81BEF /* KYDetailViewController.m in Sources */,
 				77F3091417ACDC6C00A81BEF /* Interactions.m in Sources */,
 				77F3091717ACDC7E00A81BEF /* Users.m in Sources */,
+				77F3091A17AD0A6B00A81BEF /* KYUserTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
