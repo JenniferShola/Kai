@@ -12,5 +12,9 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *userPhoto;
 @property (weak, nonatomic) IBOutlet UILabel *profileName;
+@property (weak, nonatomic) IBOutlet UILabel *connectionLabel;
+@property (weak, nonatomic) IBOutlet UIButton *timelineButton;
+@property (weak, nonatomic) IBOutlet UIView *strengthView;
+
 
 @end

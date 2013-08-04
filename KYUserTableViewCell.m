@@ -26,4 +26,9 @@
     // Configure the view for the selected state
 }
 
+-(IBAction)timelineButtonTapped:(id)sender
+{
+   //navigate to timeline view
+}
+
 @end

@@ -11,6 +11,12 @@
 #import "Interactions.h"
 #import "KYMasterViewController.h"
 
+@interface KYAppDelegate ()
+
+@property (nonatomic, assign) BOOL firstRun;
+
+@end
+
 @implementation KYAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -84,10 +90,38 @@
         [_managedObjectContext setPersistentStoreCoordinator:coordinator];
     }
     
-    Users *userName = [[Users alloc] init];
-    [_managedObjectContext insertObject: userName];
+    if (self.firstRun)
+    {
+        Users *userName = [NSEntityDescription insertNewObjectForEntityForName:@"Users" inManagedObjectContext:_managedObjectContext];
+        [userName setName:@"Shola"];
+        [userName setPhoneNumber:@"555-555-1234"];
+        [userName setConnection:@"Friend"];
+        [userName setEmail:@"sjoyedele@gmail.com"];
+        [userName setReminder:60];
+        [userName setPhoto:@"sholaPhoto1.jpg"];
+        
+        
+        userName = [NSEntityDescription insertNewObjectForEntityForName:@"Users" inManagedObjectContext:_managedObjectContext];
+        [userName setName:@"Omoju Miller"];
+        [userName setPhoneNumber:@"555-555-1235"];
+        [userName setConnection:@"CODE2040 Mentor"];
+        [userName setEmail:@"fake@gmail.com"];
+        [userName setReminder:120];
+        [userName setPhoto:@"omojuPhoto1.jpg"];
+        
+        
+        userName = [NSEntityDescription insertNewObjectForEntityForName:@"Users" inManagedObjectContext:_managedObjectContext];
+        [userName setName:@"Janeth"];
+        [userName setPhoneNumber:@"555-555-1236"];
+        [userName setConnection:@"Friend"];
+        [userName setEmail:@"janeth.moranc@gmail.com"];
+        [userName setReminder:180];
+        [userName setPhoto:@"janethPhoto1.jpg"];
+        
+        [self saveContext];
+        
+    }
     
-    [self saveContext];
     
     return _managedObjectContext;
 }
@@ -113,7 +147,7 @@
     }
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Kai.sqlite"];
-    BOOL firstRun = ![[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]];
+    self.firstRun = ![[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]];
 
     
     NSError *error = nil;
@@ -146,40 +180,6 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
-    
-if(firstRun)
-{
-    Users *userName = [NSEntityDescription insertNewObjectForEntityForName:@"Users" inManagedObjectContext:_managedObjectContext];
-    [userName setName:@"Shola"];
-    [userName setPhoneNumber:@"555-555-1234"];
-    [userName setConnection:@"Friend"];
-    [userName setEmail:@"sjoyedele@gmail.com"];
-    [userName setReminder:60];
-    [userName setPhoto:@"awesomeShola.jpg"];
-    
-    
-    userName = [NSEntityDescription insertNewObjectForEntityForName:@"Users" inManagedObjectContext:_managedObjectContext];
-    [userName setName:@"Adrian"];
-    [userName setPhoneNumber:@"555-555-1235"];
-    [userName setConnection:@"Friend"];
-    [userName setEmail:@"adrian@gmail.com"];
-    [userName setReminder:120];
-    [userName setPhoto:@"adrian.jpg"];
-
-    
-    userName = [NSEntityDescription insertNewObjectForEntityForName:@"Users" inManagedObjectContext:_managedObjectContext];
-    [userName setName:@"Janeth"];
-    [userName setPhoneNumber:@"555-555-1236"];
-    [userName setConnection:@"Friend"];
-    [userName setEmail:@"janeth.moranc@gmail.com"];
-    [userName setReminder:180];
-    [userName setPhoto:@"janeth.jpg"];
-    
-    [self saveContext];
-    
-}
-    
-    //[self saveContext];
     
     //[userName.interactions methodName] countObjects, For-Loop/Iterate, Sort into Array
     

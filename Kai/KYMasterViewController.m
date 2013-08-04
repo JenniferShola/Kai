@@ -50,10 +50,6 @@
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
     NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
     
-    // If appropriate, configure the new managed object.
-    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
-    
     // Save the context.
     NSError *error = nil;
     if (![context save:&error]) {
@@ -82,9 +78,10 @@
     KYUserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
-    
-    
-    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 77.0;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -134,6 +131,7 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
+    
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Users" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
@@ -227,8 +225,9 @@
 {
     Users *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.profileName.text = object.name;
-    //cell.textLabel.text = object.name;
-    //cell.imageView.image = object.photo;
+    cell.connectionLabel.text = object.connection;
+    cell.strengthView.backgroundColor = [UIColor redColor];
+    cell.userPhoto.image = [UIImage imageNamed:object.photo];
     
 }
 
